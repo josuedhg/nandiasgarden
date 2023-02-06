@@ -1,0 +1,6 @@
+<h1>Order a Pizza</h1>
+<form action="{% url 'edit_order' pizza.id %}" method="POST">
+	{% csrf_token %}
+	{{ pizzaform }}
+	<input type="submit" name="order" id="order" value="Edit Order">
+</form>
