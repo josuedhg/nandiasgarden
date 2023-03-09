@@ -14,10 +14,11 @@ def order(request):
         if filled_form.is_valid():
             created_pizza = filled_form.save()
             created_pizza_pk = created_pizza.id
-            note = 'Thanks for ordering! your %s %s and %s pizza is on its way'%(
-                    filled_form.cleaned_data['topping1'],
-                    filled_form.cleaned_data['topping2'],
-                    filled_form.cleaned_data['size'],)
+            note = "Thanks for ordering!"\
+                    f"your {filled_form.cleaned_data['topping1']} "\
+                    f"{filled_form.cleaned_data['topping2']} and "\
+                    f"{filled_form.cleaned_data['size']} pizza is "\
+                    "on its way"
             new_form = PizzaForm()
             return render(request, 'pizza/order.html',
                                    {'created_pizza_pk': created_pizza_pk,
